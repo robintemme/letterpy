@@ -82,7 +82,7 @@ class WolframAlphaQuery:
     return
 
   def AddPodIndex(self, podindex=''):
-    self.Query = self.Query + '&podindex=' + urllib2.quote(podindex)
+    self.Query = self.Query + '&includepodid=' + urllib2.quote(podindex)
     return
 
   def AddPodScanner(self, podscanner=''):
@@ -174,6 +174,9 @@ class Pod:
     self.pod = pod
     return
 
+  def Id(self):
+    return scanbranches(self.pod, 'id')
+
   def IsError(self):
     return scanbranches(self.pod, 'error')
 
@@ -209,6 +212,9 @@ class Subpod:
   def __init__(self, subpod=''):
     self.subpod = subpod
     return
+
+  def Primary(self):
+    return scanbranches(self.subpod, 'primary')
 
   def Title(self):
     return scanbranches(self.subpod, 'title')
