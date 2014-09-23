@@ -2,8 +2,18 @@
 # -*- coding: UTF-8 -*-
 
 w_api = 'YE3YUE-WPHP5KGTXE'
-letter_set = 'pwmhvurtupzaycczbwfdbswpt'
-needed = 'wrt'
+letter_set = ''
+needed = ''
+
+import sys
+
+if len(sys.argv) < 2:
+    print("No charset given. Aborting.")
+    exit()
+else:
+    letter_set = sys.argv[1]
+    if len(sys.argv) >= 3:
+        needed = sys.argv[2]
 
 import wap
 
